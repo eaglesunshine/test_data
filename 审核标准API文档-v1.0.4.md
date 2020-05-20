@@ -3,7 +3,8 @@
 版本记录
 
 | 日期        | 版本号 | 变更记录                      | 作者         | 审核人 |
-|------------|--------|------------------------------|-------------|--------|
+|------------|--------|------------------------------|--------------|--------|
+| 2020.05.19 | v1.0.4 | 新增特征提取、布控、搜索plugin | 陈悠悠        | 焦义奎 |
 | 2020.05.13 | v1.0.3 | 结果中增加处理时间             | 朱敏         | 焦义奎 |
 | 2020.05.12 | v1.0.2 | 结果中增加任务状态和image_id   | 朱敏         | 焦义奎 |
 | 2020.05.11 | v1.0.1 | 输出结果格式调整               | 焦义奎       | 杨欣   |
@@ -61,28 +62,28 @@
 | code       | int      | 错误码       | v1.0.0 |
 | msg        | string   | 错误信息描述 | v1.0.0 |
 | data       | object   |              | v1.0.0 |
-| \+ task_id | string   | 任务id       | v1.0.0 |
+| &ensp;\+ task_id | string   | 任务id       | v1.0.0 |
 
 - 结果回调URL参数，视频解析完成后，商汤调用回调接口传回获取解析结果的URL。
 
-| 字段名称        | 字段类型  | 字段描述                                                 | 版本   |
-|----------------|----------|---------------------------------------------------------|--------|
-| code           | int      | 错误码                                                   | v1.0.0 |
-| msg            | string   | 错误信息描述                                              | v1.0.0 |
-| data           | object   |                                                         | v1.0.0 |
-| \+ time_cost   | int      | 处理花费时间，单位为s                                      | v1.0.3 |
-| \+ status      | string   | 任务状态： waiting, running, finished、canceled、failed   | v1.0.2 |
-| \+ task_id     | string   | 任务UUID                                                 | v1.0.0 |
-| \+ meta        | object   | 视频的 meta信息                                           | v1.0.1 |
-| \++ first_pts  | int64    | 视频第一帧的pts                                           | v1.0.1 |
-| \++ time_base  | object   | 视频的time_base, 对应ffmpeg的AVRational结构的time_base     | v1.0.1 |
-| \+++num        | int      | time_base的分子                                           | v1.0.1 |
-| \+++den        | int      | time_base的分母                                           | v1.0.1 |
-| \+ results_url | string   | 获取解析结果的URL，失败时为空                               | v1.0.0 |
+| 字段名称                         | 字段类型  | 字段描述                                                | 版本   |
+|---------------------------------|----------|---------------------------------------------------------|--------|
+| code                            | int      | 错误码                                                   | v1.0.0 |
+| msg                             | string   | 错误信息描述                                              | v1.0.0 |
+| data                            | object   |                                                          | v1.0.0 |
+| &ensp;\+ time_cost              | int      | 处理花费时间，单位为s                                      | v1.0.3 |
+| &ensp;\+ status                 | string   | 任务状态： waiting, running, finished、canceled、failed   | v1.0.2 |
+| &ensp;\+ task_id                | string   | 任务UUID                                                 | v1.0.0 |
+| &ensp;\+ meta                   | object   | 视频的 meta信息                                           | v1.0.1 |
+| &ensp;&ensp;\++ first_pts       | int64    | 视频第一帧的pts                                           | v1.0.1 |
+| &ensp;&ensp;\++ time_base       | object   | 视频的time_base, 对应ffmpeg的AVRational结构的time_base     | v1.0.1 |
+| &ensp;&ensp;&ensp;\+++num       | int      | time_base的分子                                           | v1.0.1 |
+| &ensp;&ensp;&ensp;\+++den       | int      | time_base的分母                                           | v1.0.1 |
+| &ensp;\+ results_url            | string   | 获取解析结果的URL，失败时为空                               | v1.0.0 |
 
 结果文件格式：
 
-![手机屏幕截图 描述已自动生成](media/386e47592b4a101b54d7c7adc5642d98.png)
+<img src="images/result_format.jpg" style="zoom:80%;" />
 
 每行是一个json对象，json对象中包含若干帧的结果。
 
@@ -228,29 +229,28 @@
   ] 
 } 
 ```
-|                                                                                                                                                                                                               |
 
 - Shema具体字段说明如下：
 
-| 字段名称         | 字段类型  | 字段描述                                                                                                                           |
-|-----------------|----------|-----------------------------------------------------------------------------------------------------------------------------------|
-| module          | string   | 不同类别的解析任务名称                                                                                                               |
-| tags            | object[] | 一个解析任务中所有的结构化结果                                                                                                        |
-| \+ category     | object[] | 父级标签列表，每一个object表示一层父级标签信息                                                                                         |
-| \++ level       | int      | 表示父级标签层级，递增排序，表示从顶层至底层的标签树高度                                                                                 |
-| \++ tag         | string   | 父级标签名称                                                                                                                        |
-| \++ type        | int      | 父级标签类别                                                                                                                        |
-| \++ probability | float    | 父级标签置信度                                                                                                                      |
-| \+ tag          | string   | leaf层标签名称                                                                                                                     |
-| \+ type         | object[] | leaf层标签类别                                                                                                                     |
-| \+ probability  | string   | leaf层标签置信度                                                                                                                    |
-| \+ attributes   | object   | leaf层标签属性，具体字段参考不同module的结构化示例                                                                                     |
-| \++ content     | string   | 表示文字内容                                                                                                                       |
-| \++ vertices    | int[]    | 检测框坐标数组，排列方式为【左上顶点x，左上顶点y，右上顶点x，右上顶点y，右下顶点x，右下顶点y，左下顶点x，左下顶点y】，即为检测框的顺时针顶点坐标值 |
+| 字段名称                        | 字段类型  | 字段描述                                               |
+|--------------------------------|----------|--------------------------------------------------------|
+| module                         | string   | 不同类别的解析任务名称                                   |
+| tags                           | object[] | 一个解析任务中所有的结构化结果                            |
+| &ensp;\+ category              | object[] | 父级标签列表，每一个object表示一层父级标签信息             |
+| &ensp;&ensp;\++ level          | int      | 表示父级标签层级，递增排序，表示从顶层至底层的标签树高度     |
+| &ensp;&ensp;\++ tag            | string   | 父级标签名称                                             |
+| &ensp;&ensp;\++ type           | int      | 父级标签类别                                             |
+| &ensp;&ensp;\++ probability    | float    | 父级标签置信度                                           |
+| &ensp;&ensp;\+ tag             | string   | leaf层标签名称                                           |
+| &ensp;\+ type                  | object[] | leaf层标签类别                                           |
+| &ensp;\+ probability           | string   | leaf层标签置信度                                         |
+| &ensp;\+ attributes            | object   | leaf层标签属性，具体字段参考不同module的结构化示例         |
+| &ensp;&ensp;\++ content        | string   | 表示文字内容                                             |
+| &ensp;&ensp;\++ vertices       | int[]    | 检测框坐标数组，排列方式为【左上顶点x，左上顶点y，右上顶点x，右上顶点y，右下顶点x，右下顶点y，左下顶点x，左下顶点y】，即为检测框的顺时针顶点坐标值 |
 
 - 关于tags.category.type和tags.tag之间的关系参考下图：
 
-![A close up of a map Description automatically generated](media/14e5a76ec39bdf8a75587a3b19bcaf2e.png)
+<img src="images/label_relationship.jpg" style="zoom:80%;" />
 
 ## 不同module的结构化示例：
 
@@ -271,6 +271,22 @@
 ```
 
 - tags.category.type与tags.type的枚举结果如下：
+
+<table>
+	<tr>
+		<td>车神</td>
+		<td>名车</td>
+	</tr>
+	<tr>
+		<td rowspan="2">隔壁老王</td>
+		<td>自行车</td>
+	</tr>
+	<tr>
+		<td>电瓶车</td>
+	</tr>
+</table>
+
+
 
 | tags.category.type | tags.type | 标签类别             |
 |--------------------|-----------|----------------------|
