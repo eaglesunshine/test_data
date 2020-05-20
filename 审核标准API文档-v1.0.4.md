@@ -274,26 +274,26 @@
 
 <table>
 	<tr>
-		<td>tags.category.type</td>
-		<td>tags.type</td>
-		<td>标签类别</td>
+		<td align="center">tags.category.type</td>
+		<td align="center">tags.type</td>
+		<td align="center">标签类别</td>
 	</tr>
 	<tr>
-		<td rowspan="4">1（性感）</td>
-		<td>0</td>
-		<td>正常</td>
+		<td rowspan="4" align="right">1（性感）</td>
+		<td align="center">0</td>
+		<td align="center">正常</td>
 	</tr>
 	<tr>
-		<td>1</td>
-		<td>性感</td>
+		<td align="center">1</td>
+		<td align="center">性感</td>
 	</tr>
 	<tr>
-		<td>2</td>
-		<td>非常性感</td>
+		<td align="center">2</td>
+		<td align="center">非常性感</td>
 	</tr>
 	<tr>
-		<td>3</td>
-		<td>色情</td>
+		<td align="center">3</td>
+		<td align="center">色情</td>
 	</tr>
 </table>
 
