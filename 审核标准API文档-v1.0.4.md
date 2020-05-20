@@ -274,15 +274,26 @@
 
 <table>
 	<tr>
-		<td>车神</td>
-		<td>名车</td>
+		<td>tags.category.type</td>
+		<td>tags.type</td>
+		<td>标签类别</td>
 	</tr>
 	<tr>
-		<td rowspan="2">隔壁老王</td>
-		<td>自行车</td>
+		<td rowspan="4">1（性感）</td>
+		<td>0</td>
+		<td>正常</td>
 	</tr>
 	<tr>
-		<td>电瓶车</td>
+		<td>1</td>
+		<td>性感</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>非常性感</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>色情</td>
 	</tr>
 </table>
 
