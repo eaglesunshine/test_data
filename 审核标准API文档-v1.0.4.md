@@ -279,7 +279,7 @@
 		<td align="center">标签类别</td>
 	</tr>
 	<tr>
-		<td rowspan="4" align="right">1（性感）</td>
+		<td rowspan="4" align="center">1（性感）</td>
 		<td align="center">0</td>
 		<td align="center">正常</td>
 	</tr>
@@ -295,41 +295,110 @@
 		<td align="center">3</td>
 		<td align="center">色情</td>
 	</tr>
+	<tr>
+		<td rowspan="3" align="center">2（疑似色情）</td>
+		<td align="center">0</td>
+		<td align="center">正常</td>
+	</tr>
+	<tr>
+		<td align="center">1</td>
+		<td align="center">疑似色情</td>
+	</tr>
+	<tr>
+		<td align="center">2</td>
+		<td align="center">色情</td>
+	</tr>
+	<tr>
+		<td rowspan="22" align="center">3（色情）</td>
+		<td align="center">0</td>
+		<td align="center">一般正常</td>
+	</tr>
+	<tr>
+		<td align="center">1</td>
+		<td align="center">卡通正常</td>
+	</tr>
+	<tr>
+		<td align="center">2</td>
+		<td align="center">简笔画正常</td>
+	</tr>
+	<tr>
+		<td align="center">3</td>
+		<td align="center">性感1</td>
+	</tr>
+	<tr>
+		<td align="center">4</td>
+		<td align="center">性感2</td>
+	</tr>
+	<tr>
+		<td align="center">5</td>
+		<td align="center">非常性感1</td>
+	</tr>
+	<tr>
+		<td align="center">6</td>
+		<td align="center">非常性感2</td>
+	</tr>
+	<tr>
+		<td align="center">7</td>
+		<td align="center">非常性感3</td>
+	</tr>
+	<tr>
+		<td align="center">8</td>
+		<td align="center">非常性感4</td>
+	</tr>
+	<tr>
+		<td align="center">9</td>
+		<td align="center">非常性感5</td>
+	</tr>
+	<tr>
+		<td align="center">10</td>
+		<td align="center">非常性感6</td>
+	</tr>
+	<tr>
+		<td align="center">11</td>
+		<td align="center">一般色情（成人色情）</td>
+	</tr>
+	<tr>
+		<td align="center">12</td>
+		<td align="center">抚摸色情</td>
+	</tr>
+	<tr>
+		<td align="center">13</td>
+		<td align="center">SM</td>
+	</tr>
+	<tr>
+		<td align="center">14</td>
+		<td align="center">性道具</td>
+	</tr>
+	<tr>
+		<td align="center">15</td>
+		<td align="center">卡通色情</td>
+	</tr>
+	<tr>
+		<td align="center">16</td>
+		<td align="center">简笔画色情</td>
+	</tr>
+	<tr>
+		<td align="center">17</td>
+		<td align="center">雕塑色情</td>
+	</tr>
+	<tr>
+		<td align="center">18</td>
+		<td align="center">儿童裸露</td>
+	</tr>
+	<tr>
+		<td align="center">19</td>
+		<td align="center">油画色情</td>
+	</tr>
+	<tr>
+		<td align="center">20</td>
+		<td align="center">人兽色情</td>
+	</tr>
+	<tr>
+		<td align="center">21</td>
+		<td align="center">儿童性行为</td>
+	</tr>
 </table>
 
-
-
-| tags.category.type | tags.type | 标签类别             |
-|--------------------|-----------|----------------------|
-| 1（性感）           | 0         | 正常                 |
-|                    | 1         | 性感                 |
-|                    | 2         | 非常性感             |
-|                    | 3         | 色情                 |
-| 2（疑似色情）       | 0         | 正常                 |
-|                    | 1         | 疑似色情             |
-|                    | 2         | 色情                 |
-| 3（色情）           | 0         | 一般正常             |
-|                    | 1         | 卡通正常             |
-|                    | 2         | 简笔画正常           |
-|                    | 3         | 性感1                |
-|                    | 4         | 性感2                |
-|                    | 5         | 非常性感1            |
-|                    | 6         | 非常性感2            |
-|                    | 7         | 非常性感3            |
-|                    | 8         | 非常性感4            |
-|                    | 9         | 非常性感5            |
-|                    | 10        | 非常性感6            |
-|                    | 11        | 一般色情（成人色情）  |
-|                    | 12        | 抚摸色情             |
-|                    | 13        | SM                  |
-|                    | 14        | 性道具               |
-|                    | 15        | 卡通色情             |
-|                    | 16        | 简笔画色情           |
-|                    | 17        | 雕塑色情             |
-|                    | 18        | 儿童裸露             |
-|                    | 19        | 油画色情             |
-|                    | 20        | 人兽色情             |
-|                    | 21        | 儿童性行为           |
 
 ### 暴恐（terror）
 
